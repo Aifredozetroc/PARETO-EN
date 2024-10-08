@@ -3,29 +3,30 @@ New aproach to tradicional Pareto chart, Small changes can generate big learning
 
 # Pareto Chart 4.0
 
-**Pareto Chart 4.0** es una aplicación interactiva desarrollada con **Streamlit** que genera gráficos de Pareto a partir de archivos Excel. Su principal objetivo es ayudar a visualizar las causas principales que impactan en los procesos, destacando las causas que representan el 80% del impacto total a través de una zona sombreada en el gráfico llamada "Pay Attention Zone".
+**Pareto Chart 4.0** is an interactive application developed with **Streamlit** that generates Pareto charts from Excel files. Its main goal is to help visualize the main causes impacting processes, highlighting the causes that represent 80% of the total impact through a shaded area in the chart called the "Pay Attention Zone."
 
-## Características
+## Features
 
-- Sinopsis educativa del uso tradicional de pareto y las oportunidades que un pequeño aporte pueden generar.
-- Generación automática de gráficos de Pareto a partir de archivos Excel.
-- Identificación visual del 80% de las causas principales en el gráfico.
-- Descarga de los gráficos generados en formato PDF.
-- Funcionalidad sencilla y rápida para equipos de trabajo en áreas de mejora continua, producción y mantenimiento.
+- Educational synopsis of the traditional use of Pareto and the opportunities that a small contribution can generate.
+- Automatic generation of Pareto charts from Excel files.
+- Visual identification of the 80% of the main causes in the chart.
+- Download of the generated charts in PDF format.
+- Simple and quick functionality for work teams in continuous improvement, production, and maintenance areas.
 
-## Instrucciones de uso
+## Instructions for Use
 
-1. **Subir un archivo Excel**: El archivo debe tener dos columnas:
-   - **Primera columna**: Las causas (por ejemplo: Fallas, Demoras, Oportunidades, etc.).
-   - **Segunda columna**: La frecuencia o impacto de cada causa (por ejemplo: Tiempo acumulado o número de eventos).
-2. **Visualizar el gráfico**: La aplicación ordenará automáticamente los eventos por severidad y generará el gráfico de Pareto, destacando la "Pay Attention Zone" (área sombreada correspondiente al 80% de las paradas).
-3. **Descargar el gráfico**: Puedes descargar el gráfico generado en formato PDF para su posterior análisis.
+1. **Upload an Excel file**: The file must have two columns:
+   - **First column**: The causes (e.g., Failures, Delays, Opportunities, etc.).
+   - **Second column**: The frequency or impact of each cause (e.g., Accumulated time or number of events).
+2. **Visualize the chart**: The application will automatically sort the events by severity and generate the Pareto chart, highlighting the "Pay Attention Zone" (shaded area corresponding to 80% of the stops).
+3. **Download the chart**: You can download the generated chart in PDF format for further analysis.
 
-## Innovación
+## Innovation
 
-La frase atribuida a E. Murphy, "Nada es tan malo que no pueda empeorar", condensa para que los simples mortales entendamos, muchos principios estadísticos y probabilísticos. Después de muchos años de práctica profesional, estamos convencidos de la importancia de estudiar y comprender los fundamentos, para luego aventurarnos en el camino del descubrimiento. Fue, en buena parte, lo que ocurrió con este proyecto: parece que hubiéramos jalado un hilo de un suéter tejido a mano. De un simple gráfico de Pareto han surgido otros insights que estamos desarrollando, y a través de esta app los compartiremos con todos ustedes.
+The phrase attributed to E. Murphy, "Nothing is so bad that it can't get worse," condenses many statistical and probabilistic principles for us mere mortals to understand. After many years of professional practice, we are convinced of the importance of studying and understanding the fundamentals, and then venturing down the path of discovery. This was largely what happened with this project: it seems we pulled a thread from a hand-knit sweater. From a simple Pareto chart, other insights have emerged that we are developing, and through this app, we will share them with all of you.
 
-Si la primera frase es válida y poco discutible, su misma lógica nos lleva a deducir también que "Nada es tan bueno que no se pueda mejorar". Ese pensamiento nos motiva a buscar incansablemente la innovación, incluso en los rincones más tradicionales. Veremos a dónde nos lleva este inesperado hilo suelto...
+If the first phrase is valid and largely indisputable, its same logic leads us to deduce that "Nothing is so good that it can't be improved." That thought motivates us to tirelessly seek innovation, even in the most traditional corners. We will see where this unexpected loose thread takes us...
+
 
 
 
