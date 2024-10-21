@@ -3,6 +3,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import openpyxl
+import os
 from io import BytesIO  # Importar BytesIO
 from matplotlib.backends.backend_pdf import PdfPages
 from datetime import datetime
@@ -79,9 +81,8 @@ if st.session_state.page == "Preview":
                 2. Headers can be customized, but they must follow this order:
                 - First column: place the categories (Failures, delays, threats, opportunities, causes). There is no character limit for this category, but a maximum of 25 characters maintains a readable appearance.
                 - Second column: place the frequency (accumulated time for each event).
-                - The chart title will be the file name without the extension.*
-                - The sheet name will appear as a reference at the bottom of the chart.*
-                - *In development
+                - The chart title will be the file name without the extension.
+                - The column headers will be used as labels for the X-axis (cell B1) and Y-axis (cell A1).        
                 3. There should be no blank cells or null values.
                 4. The application will automatically sort event severity according to frequency in descending order.
                 5. A unique feature of this interpretation of the Pareto chart is the shaded area corresponding to 80% of the stoppages. This greatly simplifies identifying the key areas that require more attention, which is why we call it the "Pay Attention Zone."
@@ -109,15 +110,26 @@ elif st.session_state.page == "Pareto Chart":
     if st.button('Generate example'):
         df_data = generar_ejemplo()
         st.write("Example generated successfully")
-        #st.dataframe(df_data)
+        # variable initiation
+        title_gp4 = 'Pareto Chart 4.0'
+        xlabel_causas = 'Causes'
+        ylabel_frecuencia = 'Frequency'
     
     if uploaded_file is not None:
+        # costumize values to label the chart
+        wb = openpyxl.load_workbook(uploaded_file)
+        ws = wb.active
+        title_gp4 = os.path.splitext(uploaded_file.name)[0]
+
+        # Get values of cells A1 y B1
+        xlabel_causas = ws['A1'].value
+        ylabel_frecuencia = ws['B1'].value
+
         # Si se ha cargado el archivo, leemos los datos en un DataFrame
         df_data = pd.read_excel(uploaded_file)
         df_data.rename(columns={df_data.columns[0]: 'Causa', df_data.columns[1]: 'Frecuencia'}, inplace=True)
         st.write("Data loaded successfully:")
-        #st.dataframe(df_data)
-
+       
     if df_data is not None:      
         # Procesar datos para el gráfico
         try:
@@ -137,10 +149,10 @@ elif st.session_state.page == "Pareto Chart":
                 
                 # Crear el gráfico de Pareto
                 fig, ax = plt.subplots(figsize=(10, 6))
-                plt.title('Pareto Chart 4.0', fontsize=14, pad=10)
+                plt.title(title_gp4, fontsize=14, pad=10)
                 ax.bar(df_data['Causa'], df_data['Frecuencia'], color='blue')
-                ax.set_xlabel("Causes")
-                ax.set_ylabel("Frequency")
+                ax.set_xlabel(xlabel_causas)
+                ax.set_ylabel(ylabel_frecuencia)
                 ax.set_xticklabels(df_data['Causa'], rotation=90, fontsize=8)
                 ax2 = ax.twinx()
                 ax2.plot(df_data['Causa'], df_data['Porcentaje Acumulado'], color='red', linestyle='-')
